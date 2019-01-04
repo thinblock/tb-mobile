@@ -1,14 +1,15 @@
 import React from 'react';
 import {Scene, Router, Actions} from 'react-native-router-flux';
-import LoginForm from './components/LoginForm';
-
+import LoginScreen from './components/LoginScreen';
+import SignupScreen from './components/SignupScreen';
 
 
 const RouterComponent = () =>{
   return (
     <Router >
       <Scene key='auth'navigationBarStyle={{backgroundColor:'#2A282F'}} titleStyle={{color:'white'}}se>
-        <Scene key='login' component={LoginForm} title= 'LOG IN' />
+        <Scene key='signup' component={SignupScreen} title= 'SIGN UP' />
+        <Scene key='login' component={LoginScreen} title= 'SIGN IN' />
       </Scene>
     </Router>
   );

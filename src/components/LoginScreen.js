@@ -5,7 +5,7 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { CardSection, Button, Input, Spinner} from './common';
 
 
-class LoginForm extends Component {
+class LoginScreen extends Component {
   onEmailChange(text){
     this.props.emailChanged(text);
   }
@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
    return (
      <Button onPress={this.onButtonPress.bind(this)}>
-       LOGIN
+       SIGN IN
      </Button>
    );
 }
@@ -57,15 +57,16 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <Text style={styles.errorTextStyle}>
-         {this.props.error}
-        </Text>
 
           {this.renderButton()}
 
         <TouchableOpacity style={styles.buttonStyle}>
-          <Text>Reset your password</Text>
+          <Text style={styles.textStyle}>Reset your password</Text>
         </TouchableOpacity>
+
+        <Text style={styles.errorTextStyle}>
+         {this.props.error}
+        </Text>
       </View>
     )
   }
@@ -80,7 +81,8 @@ const styles = {
   },
   textStyle: {
   color: 'grey',
-  fontSize: 13
+  fontSize: 13,
+  textDecorationLine: 'underline'
   },
   buttonStyle: {
   marginTop: 10,
@@ -101,4 +103,4 @@ const mapStateToProps = state => {
 
 export default connect (mapStateToProps, {
   emailChanged, passwordChanged, loginUser
-})(LoginForm)
+})(LoginScreen)
